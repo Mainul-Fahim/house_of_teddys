@@ -169,6 +169,62 @@ const Home = ({ navigation }) => {
         )
     }
 
+    function renderRecentlyViewed(item, index) {
+        return (
+            <TouchableOpacity
+                style={{ flex: 1, flexDirection: 'row' }}
+                onPress={() => {
+                    setSelectedItem(item)
+                    setShowAddToBagModal(true)
+                }}
+            >
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Image
+                        source={item.img}
+                        resizeMode="contain"
+                        style={{
+                            width: 130,
+                            height: 100,
+                        }}
+                    />
+                </View>
+                <View style={{ flex: 1.5, marginLeft: SIZES.radius, justifyContent: "center" }}>
+                    <Text style={{ color: COLORS.gray, ...FONTS.body3 }}>{item.name}</Text>
+                    <Text style={{ ...FONTS.h3 }}>{item.price}</Text>
+                </View>
+            </TouchableOpacity>
+        )
+    }
+
+    function renderShoeSizes() {
+        return (
+            selectedItem.sizes.map((item, index) => {
+                return (
+                    <TouchableOpacity
+                        key={index}
+                        style={{
+                            width: 35,
+                            height: 25,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginHorizontal: 5,
+                            marginBottom: 10,
+                            backgroundColor: selectedItem.sizes[index] == selectedSize ? COLORS.white : null,
+                            borderWidth: 1,
+                            borderColor: COLORS.white,
+                            borderRadius: 5,
+                        }}
+                        onPress={() => {
+                            setSelectedSize(item)
+                        }}
+                    >
+                        <Text style={{ color: selectedItem.sizes[index] == selectedSize ? COLORS.black : COLORS.white, ...FONTS.body4 }}>{item}</Text>
+                    </TouchableOpacity>
+                )
+            })
+        )
+    }
+
     
 
     
