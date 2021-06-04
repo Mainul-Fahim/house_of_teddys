@@ -27,16 +27,16 @@ const Home = ({ navigation }) => {
     const [trending, setTrending] = React.useState([
         {
             id: 0,
-            name: "Nike Air Zoom Pegasus 36",
+            name: "Blue Teddy",
             img: images.nikePegasus36,
-            bgColor: "#BF012C",
+            bgColor: "#F08080",
             type: "RUNNING",
             price: "$186",
             sizes: [6, 7, 8, 9, 10]
         },
         {
             id: 1,
-            name: "Nike Metcon 5",
+            name: "Brown Teddy",
             img: images.nikeMetcon5Black,
             bgColor: "#D39C67",
             type: "TRAINING",
@@ -45,10 +45,10 @@ const Home = ({ navigation }) => {
         },
         {
             id: 2,
-            name: "Nike Air Zoom Kobe 1 Proto",
+            name: "Sky Teddy",
             img: images.nikeZoomKobe1Proto,
-            bgColor: "#7052A0",
-            type: "BASKETBALL",
+            bgColor: "#9FE2BF",
+            type: "UPCOMING",
             price: "$199",
             sizes: [6, 7, 8, 9]
         },
@@ -57,7 +57,7 @@ const Home = ({ navigation }) => {
     const [recentlyViewed, setRecentlyViewed] = React.useState([
         {
             id: 0,
-            name: "Nike Metcon 4",
+            name: "Little Teddy",
             img: images.nikeMetcon4,
             bgColor: "#414045",
             type: "TRAINING",
@@ -66,7 +66,7 @@ const Home = ({ navigation }) => {
         },
         {
             id: 1,
-            name: "Nike Metcon 6",
+            name: "White Teddy",
             img: images.nikeMetcon6,
             bgColor: "#4EABA6",
             type: "TRAINING",
@@ -75,7 +75,7 @@ const Home = ({ navigation }) => {
         },
         {
             id: 2,
-            name: "Nike Metcon 5",
+            name: "Woah Teddy",
             img: images.nikeMetcon5Purple,
             bgColor: "#2B4660",
             type: "TRAINING",
@@ -84,7 +84,7 @@ const Home = ({ navigation }) => {
         },
         {
             id: 3,
-            name: "Nike Metcon 3",
+            name: "Pooh Teddy",
             img: images.nikeMetcon3,
             bgColor: "#A69285",
             type: "TRAINING",
@@ -93,7 +93,7 @@ const Home = ({ navigation }) => {
         },
         {
             id: 4,
-            name: "Nike Metcon Free",
+            name: "Pink Teddy",
             img: images.nikeMetconFree,
             bgColor: "#A02E41",
             type: "TRAINING",
@@ -104,7 +104,7 @@ const Home = ({ navigation }) => {
 
     // Render
 
-    function renderTrendingShoes(item, index) {
+    function renderTrendingTeddys(item, index) {
         var trendingStyle = {};
 
         if (index == 0) {
@@ -196,7 +196,7 @@ const Home = ({ navigation }) => {
         )
     }
 
-    function renderShoeSizes() {
+    function renderTeddySizes() {
         return (
             selectedItem.sizes.map((item, index) => {
                 return (
@@ -235,7 +235,7 @@ const Home = ({ navigation }) => {
                     showsHorizontalScrollIndicator={false}
                     data={trending}
                     keyExtractor={item => item.id.toString()}
-                    renderItem={({ item, index }) => renderTrendingShoes(item, index)}
+                    renderItem={({ item, index }) => renderTrendingTeddys(item, index)}
                 />
             </View>
 
@@ -318,7 +318,7 @@ const Home = ({ navigation }) => {
                                     <Text style={{ color: COLORS.white, ...FONTS.body3 }}>Select size</Text>
                                 </View>
                                 <View style={{ flex: 1, flexWrap: 'wrap', flexDirection: 'row', marginLeft: SIZES.radius }}>
-                                    {renderShoeSizes()}
+                                    {renderTeddySizes()}
                                 </View>
                             </View>
 
